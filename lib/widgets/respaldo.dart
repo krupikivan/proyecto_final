@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class Respaldo extends StatelessWidget {
   const Respaldo({
     Key key,
+    this.imagen,
+    this.texto,
   }) : super(key: key);
 
+  final String imagen;
+  final String texto;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,7 +16,7 @@ class Respaldo extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage('assets/imagenes/baal_shem_tov.jpg'),
+            backgroundImage: AssetImage(imagen),
             radius: 30,
           ),
           SizedBox(width: 8),
@@ -29,7 +33,7 @@ class Respaldo extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Esta causa esta respaldada por el gran rab de la comunidad',
+                  texto,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1
