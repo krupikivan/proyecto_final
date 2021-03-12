@@ -1,5 +1,3 @@
-import 'dart:math';
-
 class Causa {
   const Causa({
     this.urlImagenes,
@@ -13,6 +11,30 @@ class Causa {
     this.descripcion,
   });
 
+  factory Causa.fromJson(Map<String, dynamic> json) {
+    final titulo = json['titulo'];
+    final subtitulo = json['subtitulo'];
+    final descripcion = json['descripcion'];
+    final imagen = json['imagen'];
+    final objetivo = json['objetivo'];
+    final contacto = json['contacto'];
+    final respaldo = json['respaldo'];
+    final imagenRespaldo = json['imagen_respaldo'];
+    final imagenes = json['imagenes'];
+
+    return Causa(
+      titulo: titulo,
+      subtitulo: subtitulo,
+      descripcion: descripcion,
+      urlImagen: imagen,
+      objetivo: objetivo,
+      numeroTelefono: contacto,
+      respaldo: respaldo,
+      urlImagenRespaldo: imagenRespaldo,
+      urlImagenes: imagenes,
+    );
+  }
+
   final String titulo;
   final String subtitulo;
   final String urlImagen;
@@ -25,41 +47,18 @@ class Causa {
   final int numeroTelefono;
 }
 
-const List<Causa> listadoCausas = [
-  Causa(
-    titulo: 'Mikve',
-    subtitulo: 'Necesitamos tu ayuda',
-    urlImagen: 'assets/imagenes/mikve.jpg',
-    descripcion: 'Vamos que tenemos que juntar mucha plata',
-    objetivo: 'Recaudar 1000 dolares',
-    respaldo: 'Respaldado por grandes rabinos',
-    urlImagenRespaldo: 'assets/imagenes/baal_shem_tov.jpg',
-    numeroTelefono: 123123123,
-    urlImagenes: [
-      'assets/imagenes/mikve.jpg',
-      'assets/imagenes/mikve_1.jpg',
-      'assets/imagenes/mikve_2.jpg',
-      'assets/imagenes/mikve_3.jpg',
-      'assets/imagenes/mikve_4.jpg',
-      'assets/imagenes/mikve.jpg',
-    ],
-  ),
-  Causa(
-    titulo: 'Guemara',
-    subtitulo: 'Necesitamos tu ayuda',
-    urlImagen: 'assets/imagenes/guemara.jpg',
-    descripcion: 'Vamos que tenemos que juntar mucha plata',
-    objetivo: 'Recaudar 1000 dolares',
-    respaldo: 'Respaldado por grandes rabinos',
-    urlImagenRespaldo: 'assets/imagenes/baal_shem_tov.jpg',
-    numeroTelefono: 123123123,
-    urlImagenes: [
-      'assets/imagenes/mikve.jpg',
-      'assets/imagenes/mikve_1.jpg',
-      'assets/imagenes/mikve_2.jpg',
-      'assets/imagenes/mikve_3.jpg',
-      'assets/imagenes/mikve_4.jpg',
-      'assets/imagenes/mikve.jpg',
-    ],
-  ),
-];
+final json = {
+  "id": 1,
+  "titulo": "Mikve en cordoba",
+  "subtitulo": "Primera mikve",
+  "descripcion": "Colabora con la mikve de cordoba",
+  "imagen": "https://www.radiojai.com/wp-content/uploads/2020/03/Mikve-1.jpg",
+  "objetivo": "Nuestro objetivo",
+  "contacto": 1122334455,
+  "respaldo": "Respaldo de no se que",
+  "imagen_respaldo": "https://media.torah-box.com/beau-mikve-3178.jpg",
+  "imagenes": [
+    "https://www.jpost.com/HttpHandlers/ShowImage.ashx?id=280162&w=898&h=628",
+    "https://media.torah-box.com/beau-mikve-3178.jpg"
+  ]
+};
