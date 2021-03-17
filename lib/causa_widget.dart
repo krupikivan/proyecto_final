@@ -39,7 +39,7 @@ class CausaWidget extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          Image.asset(
+          Image.network(
             urlImagen,
             height: 194,
             fit: BoxFit.fitWidth,

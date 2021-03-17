@@ -20,7 +20,7 @@ class Causa {
     final contacto = json['contacto'];
     final respaldo = json['respaldo'];
     final imagenRespaldo = json['imagen_respaldo'];
-    final imagenes = json['imagenes'];
+    final List<String> imagenes = List<String>.from(json['imagenes']);
 
     return Causa(
       titulo: titulo,
@@ -45,20 +45,9 @@ class Causa {
   final String urlImagenRespaldo;
   final String respaldo;
   final int numeroTelefono;
-}
 
-final json = {
-  "id": 1,
-  "titulo": "Mikve en cordoba",
-  "subtitulo": "Primera mikve",
-  "descripcion": "Colabora con la mikve de cordoba",
-  "imagen": "https://www.radiojai.com/wp-content/uploads/2020/03/Mikve-1.jpg",
-  "objetivo": "Nuestro objetivo",
-  "contacto": 1122334455,
-  "respaldo": "Respaldo de no se que",
-  "imagen_respaldo": "https://media.torah-box.com/beau-mikve-3178.jpg",
-  "imagenes": [
-    "https://www.jpost.com/HttpHandlers/ShowImage.ashx?id=280162&w=898&h=628",
-    "https://media.torah-box.com/beau-mikve-3178.jpg"
-  ]
-};
+  // List<String> getListado(List<dynamic> json) {
+  //   List<String> imagenes =
+  // }
+
+}
