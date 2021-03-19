@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:proyecto_final/clases/causa.dart';
 
+// Este servicio Obtiene causas
 Future<List<Causa>> obtenerCausas() async {
   try {
     Response respuesta =
@@ -19,6 +20,7 @@ Future<List<Causa>> obtenerCausas() async {
   }
 }
 
+// Este servicio Elimina causas
 Future eliminarCausa({int id}) async {
   try {
     var body = {
@@ -35,6 +37,7 @@ Future eliminarCausa({int id}) async {
   }
 }
 
+// Este servicio agrega causas
 Future agregarCausa(
     {String titulo,
     String subtitulo,
