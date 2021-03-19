@@ -16,7 +16,7 @@ class _AgregarCausaState extends State<AgregarCausa> {
   String _subtitulo;
   String _descripcion;
   String _objetivo;
-  String _contacto;
+  int _contacto;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +90,7 @@ class _AgregarCausaState extends State<AgregarCausa> {
                       return null;
                     },
                     onChanged: (value) {
-                      _contacto = value;
+                      _contacto = int.parse(value);
                     },
                   ),
                 ])),
@@ -99,7 +99,12 @@ class _AgregarCausaState extends State<AgregarCausa> {
         onPressed: () async {
           FocusScope.of(context).unfocus();
           if (_formKey.currentState.validate()) {
-            if (await agregarCausa()) {
+            if (await agregarCausa(
+                titulo: _titulo,
+                descripcion: _descripcion,
+                contacto: _contacto,
+                objetivo: _objetivo,
+                subtitulo: _subtitulo)) {
               showDialog(
                   context: context,
                   child: AlertDialog(
@@ -107,6 +112,7 @@ class _AgregarCausaState extends State<AgregarCausa> {
                     actions: [
                       FlatButton(
                           onPressed: () {
+                            Navigator.pop(context);
                             limpiar();
                           },
                           child: Text("Ok"))
@@ -133,12 +139,6 @@ class _AgregarCausaState extends State<AgregarCausa> {
   }
 
   limpiar() {
-    setState(() {
-      _titulo = '';
-      _subtitulo = '';
-      _descripcion = '';
-      _objetivo = '';
-      _contacto = '';
-    });
+    _formKey.currentState.reset();
   }
 }
