@@ -27,10 +27,10 @@ Future agregarCausa(
     int contacto}) async {
   try {
     var body = {
-      "titulo": titulo,
-      "subtitulo": subtitulo,
-      "descripcion": descripcion,
-      "objetivo": objetivo,
+      "titulo": "$titulo",
+      "subtitulo": "$subtitulo",
+      "descripcion": "$descripcion",
+      "objetivo": "$objetivo",
       "contacto": contacto
     };
 
