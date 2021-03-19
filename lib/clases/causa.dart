@@ -3,7 +3,6 @@ class Causa {
     this.urlImagenes,
     this.objetivo,
     this.urlImagenRespaldo,
-    this.respaldo,
     this.numeroTelefono,
     this.titulo,
     this.subtitulo,
@@ -18,7 +17,6 @@ class Causa {
     final imagen = json['imagen'];
     final objetivo = json['objetivo'];
     final contacto = json['contacto'];
-    final respaldo = json['respaldo'];
     final imagenRespaldo = json['imagen_respaldo'];
     final List<String> imagenes = List<String>.from(json['imagenes']);
 
@@ -29,7 +27,6 @@ class Causa {
       urlImagen: imagen,
       objetivo: objetivo,
       numeroTelefono: contacto,
-      respaldo: respaldo,
       urlImagenRespaldo: imagenRespaldo,
       urlImagenes: imagenes,
     );
@@ -43,7 +40,6 @@ class Causa {
   final List<String> urlImagenes;
   final String objetivo;
   final String urlImagenRespaldo;
-  final String respaldo;
   final int numeroTelefono;
 
   // List<String> getListado(List<dynamic> json) {

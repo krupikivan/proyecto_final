@@ -16,7 +16,7 @@ class Respaldo extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage(imagen),
+            backgroundImage: NetworkImage(imagen),
             radius: 30,
           ),
           SizedBox(width: 8),

@@ -38,7 +38,7 @@ class Descripcion extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Image.asset(
+        Image.network(
           causa.urlImagen,
           height: 210,
           fit: BoxFit.cover,
@@ -47,7 +47,7 @@ class Descripcion extends StatelessWidget {
           titulo: 'Descripcion',
           descripcion: causa.descripcion,
         ),
-        CarruselImagenes(),
+        CarruselImagenes(imagenes: causa.urlImagenes),
         ItemDetalle(
           titulo: 'Objetivo',
           descripcion: causa.objetivo,
@@ -55,10 +55,6 @@ class Descripcion extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Divider(),
-        ),
-        Respaldo(
-          imagen: causa.urlImagen,
-          texto: causa.respaldo,
         ),
         SizedBox(
           height: MediaQuery.of(context).padding.bottom + 30,

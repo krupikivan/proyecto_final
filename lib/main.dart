@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_final/pantalla_principal.dart';
-import 'package:proyecto_final/servicios/servicio_causas.dart';
 
 void main() {
   runApp(MyApp());
