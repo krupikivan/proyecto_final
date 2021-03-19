@@ -25,7 +25,7 @@ class _AgregarCausaState extends State<AgregarCausa> {
           margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
           elevation: 2,
           child: _cargando
-              ? CircularProgressIndicator()
+              ? Expanded(child: Center(child: CircularProgressIndicator()))
               : Container(
                   padding: const EdgeInsets.all(30),
                   child: Form(
