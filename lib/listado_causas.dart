@@ -13,11 +13,17 @@ class ListadoCausas extends StatelessWidget {
         future: obtenerCausas(),
         builder: (context, snapshot) => snapshot.data != null
             ? ListView.builder(
-                itemBuilder: (context, index) => CausaWidget(
-                  titulo: snapshot.data[index].titulo,
-                  descripcion: snapshot.data[index].descripcion,
-                  urlImagen: snapshot.data[index].urlImagen,
-                  causa: snapshot.data[index],
+                itemBuilder: (context, index) => Dismissible(
+                  key: Key(index.toString()),
+                  onDismissed: (direction) async {
+                    await eliminarCausa(id: snapshot.data[index].id);
+                  },
+                  child: CausaWidget(
+                    titulo: snapshot.data[index].titulo,
+                    descripcion: snapshot.data[index].descripcion,
+                    urlImagen: snapshot.data[index].urlImagen,
+                    causa: snapshot.data[index],
+                  ),
                 ),
                 itemCount: snapshot.data.length,
               )

@@ -19,6 +19,22 @@ Future<List<Causa>> obtenerCausas() async {
   }
 }
 
+Future eliminarCausa({int id}) async {
+  try {
+    var body = {
+      "id": id,
+    };
+    Response respuesta = await Dio().post(
+        "https://gmaj-service.herokuapp.com/api/delete_causa",
+        data: jsonEncode(body));
+    if (respuesta.statusCode == 200) {
+      obtenerCausas();
+    }
+  } catch (e) {
+    return false;
+  }
+}
+
 Future agregarCausa(
     {String titulo,
     String subtitulo,

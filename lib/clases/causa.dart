@@ -1,6 +1,7 @@
 class Causa {
   const Causa({
     this.urlImagenes,
+    this.id,
     this.objetivo,
     this.urlImagenRespaldo,
     this.numeroTelefono,
@@ -12,6 +13,7 @@ class Causa {
 
   factory Causa.fromJson(Map<String, dynamic> json) {
     final titulo = json['titulo'];
+    final id = json['id'];
     final subtitulo = json['subtitulo'];
     final descripcion = json['descripcion'];
     final imagen = json['imagen'];
@@ -26,6 +28,7 @@ class Causa {
       descripcion: descripcion,
       urlImagen: imagen,
       objetivo: objetivo,
+      id: id,
       numeroTelefono: contacto,
       urlImagenRespaldo: imagenRespaldo,
       urlImagenes: imagenes,
@@ -37,6 +40,7 @@ class Causa {
   final String urlImagen;
 
   final String descripcion;
+  final int id;
   final List<String> urlImagenes;
   final String objetivo;
   final String urlImagenRespaldo;
