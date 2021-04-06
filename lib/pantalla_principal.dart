@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto_final/causa_widget.dart';
-import 'package:proyecto_final/clases/causa.dart';
-import 'package:proyecto_final/servicios/servicio_causas.dart';
 
-class PantallaPrincipal extends StatelessWidget {
+import 'agregar_causa.dart';
+import 'listado_causas.dart';
+
+class PantallaPrincipal extends StatefulWidget {
+  @override
+  _PantallaPrincipalState createState() => _PantallaPrincipalState();
+}
+
+class _PantallaPrincipalState extends State<PantallaPrincipal> {
+  int indexPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,21 +20,30 @@ class PantallaPrincipal extends StatelessWidget {
         centerTitle: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: FutureBuilder<List<Causa>>(
-            future: obtenerCausas(),
-            builder: (context, snapshot) => snapshot.data != null
-                ? ListView.builder(
-                    itemBuilder: (context, index) => CausaWidget(
-                      titulo: snapshot.data[index].titulo,
-                      descripcion: snapshot.data[index].descripcion,
-                      urlImagen: snapshot.data[index].urlImagen,
-                      causa: snapshot.data[index],
-                    ),
-                    itemCount: snapshot.data.length,
-                  )
-                : Container()),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: _listarPagina()),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Ver Causas'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Agregar"),
+        ],
+        onTap: (index) => _cambiarPagina(index),
+        currentIndex: indexPage,
       ),
     );
+  }
+
+  void _cambiarPagina(int index) {
+    setState(() {
+      indexPage = index;
+    });
+  }
+
+  Widget _listarPagina() {
+    if (indexPage == 0) {
+      return ListadoCausas();
+    } else {
+      return AgregarCausa();
+    }
   }
 }
