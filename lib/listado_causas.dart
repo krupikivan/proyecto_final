@@ -23,6 +23,8 @@ class ListadoCausas extends StatelessWidget {
                     descripcion: snapshot.data[index].descripcion,
                     urlImagen: snapshot.data[index].urlImagen,
                     causa: snapshot.data[index],
+                    subtitulo: snapshot.data[index].subtitulo,
+
                   ),
                 ),
                 itemCount: snapshot.data.length,

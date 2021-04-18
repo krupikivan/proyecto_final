@@ -4,9 +4,10 @@ import 'package:proyecto_final/pantalla_detalle_causa.dart';
 import 'package:proyecto_final/pantalla_principal.dart';
 
 class CausaWidget extends StatelessWidget {
-  CausaWidget({this.titulo, this.descripcion = '', this.urlImagen, this.causa});
+  CausaWidget({this.titulo, this.descripcion = '', this.urlImagen, this.causa, this.subtitulo});
 
   final String titulo;
+  final String subtitulo;
   final String descripcion;
   final String urlImagen;
   final Causa causa;
@@ -22,32 +23,38 @@ class CausaWidget extends StatelessWidget {
           ),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            titulo,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              titulo,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          Text(
-            descripcion,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
+            Text(
+              subtitulo,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-          ),
-          Image.network(
-            urlImagen,
-            height: 194,
-            fit: BoxFit.fitWidth,
-          ),
-          Divider(
-            thickness: 1,
-          ),
-        ],
+            SizedBox(
+              height: 10,
+            ),
+            Image.network(
+              urlImagen,
+              height: 194,
+              fit: BoxFit.fitWidth,
+            ),
+            Divider(
+              thickness: 1,
+            ),
+          ],
+        ),
       ),
     );
   }
